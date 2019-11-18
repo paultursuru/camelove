@@ -1,0 +1,12 @@
+
+<%= simple_form_for(@animal) do |f| %>
+  <%= f.input :name  %>
+  <%= f.input :breed, collection: ['Alpaga', 'Camel','Llama'] %>
+  <%= f.input :age %>
+  <%= f.input :colour %>
+  <%= f.input :city %>
+  <%= f.input :description %>
+  <%= f.input :photo %>
+  <%= f.input :price %>
+  <%= f.submit 'Add my animal', class: 'btn btn-outline-success ml-2' %>
+<% end %>
