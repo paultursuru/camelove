@@ -1,4 +1,7 @@
 class AnimalsController < ApplicationController
+  def index
+    @animals = Animal.all
+    
   def show
     @animal = Animal.find(animal_params)
   end

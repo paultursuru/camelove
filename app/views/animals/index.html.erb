@@ -1,0 +1,10 @@
+ <h2 class="mt-5">Animal list</h2>
+ <ul>
+   <% @animals.each do |animal| %>
+   <li><%= animal.name %>name</li>
+   <li><%= animal.breed %>breed</li>
+   <li><%= animal.price %>€ per night</li>
+   <li><%= animal.photo %>photo</li>
+   <% end %>
+ </ul>
+
