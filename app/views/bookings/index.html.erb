@@ -1,0 +1,21 @@
+ <div class="container mt-5">
+
+    <div class="row pt-4">
+      <div class="col-12">
+      <h2 >Booking list</h2>
+      </div>
+   </div>
+
+  <div class="row pt-4">
+       <% @bookings.each do |booking| %>
+
+        <div class="card col-4 ml-3">
+     <ul>
+         <li><%= booking.date_in %></li>
+         <li><%= booking.date_out %></li>
+         <li><%= booking.status %></li>
+     </ul>
+         </div>
+    <% end %>
+    </div>
+  </div>
