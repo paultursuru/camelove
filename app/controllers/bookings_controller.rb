@@ -18,7 +18,8 @@ class BookingsController < ApplicationController
     else
       render :new
     end
-  
+  end
+
   private
 
   def booking_params
