@@ -33,10 +33,7 @@ class AnimalsController < ApplicationController
     end
   end
 
-
-
   def dead
-
     @animal.dead = true
     @animal.save
     redirect_to animal_path(@animal)
