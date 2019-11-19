@@ -2,6 +2,11 @@
   <div class="row">
     <div class="col-6 card m-3 p-5">
       <h2 class=""><%= @animal.name %></h2>
+      <% if @animal.dead %>
+        <h2> Nos Vemos pronto </h2>
+
+      <% else %>
+
         <p>My <%= @animal.breed %> is <%= @animal.age %></p>
         <p>It leaves in <%= @animal.city %></p>
         <p>Its hairs are <%= @animal.colour %></p>
@@ -10,8 +15,9 @@
         <p><%= @animal.price %>€/day</p>
     <!-- add cloudinary photo here -->
       <%= link_to "add details to my #{@animal.breed}", edit_animal_path(@animal), class: "btn btn-outline-success" %>
-      <%= link_to "Kill my #{@animal.name}", animal_path(@animal), data: {confirm: "Killing #{@animal.name} ?"}, class: "mt-2 btn btn-outline-warning"%>
+      <%= link_to "Kill my #{@animal.name}", dead_animal_path(@animal), data: {confirm: "Killing #{@animal.name} ?"}, class: "mt-2 btn btn-outline-warning"%>
     </div>
+    <% end %>
   </div>
 
   <%= link_to "Book animal", new_animal_booking_path(@animal) %>

@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   resources :animals do
     resources :bookings
   end
+  
+  get'animals/:id/dead', to: 'animals#dead', as: :dead_animal
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
