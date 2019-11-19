@@ -1,9 +1,14 @@
- <h2 class="mt-5"><%= @booking.animal.name %></h2>
+ <div class="container">
+   <h2 class="mt-5"><%= @booking.animal.name %></h2>
 
-<ul>
-  <li><%= @booking.date_in %></li>
-  <li><%= @booking.date_out %></li>
-  <li><%= @booking.status %></li>
-</ul>
+  <ul>
+    <li><%= @booking.date_in %></li>
+    <li><%= @booking.date_out %></li>
+    <li><%= @booking.status %></li>
+  </ul>
 
-<%= link_to "Back to bookings", animal_bookings_path %>
+  <p><%= link_to "Back to bookings", animal_bookings_path %></p>
+  <p><%= link_to "Delete Booking", animal_booking_path(@booking.animal), method: :delete, data: { confirm: "Delete Booking?"}, class: "mt-2 btn btn-danger"%></p>
+
+ </div>
+
