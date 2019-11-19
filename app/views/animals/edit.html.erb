@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6 mt-3">
+      <h1 class="mb-4">Add details to my <%= @animal.name %></h1>
+      <%= simple_form_for(@animal) do |f| %>
+        <%= f.input :name  %>
+        <%= f.input :breed, collection: ['Alpaga', 'Camel','Llama'] %>
+        <%= f.input :age %>
+        <%= f.input :colour %>
+        <%= f.input :city %>
+        <%= f.input :description %>
+        <%= f.input :photo %>
+        <%= f.input :price %>
+        <%= f.submit 'Edit my animal', class: 'btn btn-outline-success' %>
+        <div class="btn btn-outline-warning ml-2"><%= link_to 'take me back to my puppie', animal_path(@animal) %></div>
+      <% end %>
+    </div>
+  </div>
+</div>
