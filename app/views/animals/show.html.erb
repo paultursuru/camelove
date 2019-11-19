@@ -1,9 +1,17 @@
- <h2 class="mt-5"><%= @animal.name %></h2>
+ <div class="container">
+  <div class="row">
+    <div class="col-6 card m-3 p-5">
+      <h2 class=""><%= @animal.name %></h2>
+        <p>My <%= @animal.breed %> is <%= @animal.age %></p>
+        <p>It leaves in <%= @animal.city %></p>
+        <p>Its hairs are <%= @animal.colour %></p>
+        <h5>Here is more info to convince you :</h5>
+        <p><%= @animal.description %></p>
+        <p><%= @animal.price %>€/day</p>
+    <!-- add cloudinary photo here -->
+      <%= link_to "add details to my #{@animal.breed}", edit_animal_path(@animal), class: "btn btn-outline-success" %>
+      <%= link_to "Kill my #{@animal.name}", dead_animal_path(@animal), data: {confirm: "Killing #{@animal.name} ?"}, class: "mt-2 btn btn-outline-warning"%>
+    </div>
+  </div>
+</div>
 
-   <%= @animal.breed %>
-   <%= @animal.city %>
-   <%= @animal.age %>
-   <%= @animal.colour %>
-   <%= @animal.description %>
-   <%= @animal.price %>
-<!-- add cloudinary photo here -->
