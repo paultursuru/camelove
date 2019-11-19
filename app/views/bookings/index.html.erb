@@ -7,15 +7,17 @@
    </div>
 
   <div class="row pt-4">
-       <% @bookings.each do |booking| %>
-
+      <% @bookings.each do |booking| %>
         <div class="card col-4 ml-3">
-     <ul>
-         <li><%= booking.date_in %></li>
-         <li><%= booking.date_out %></li>
-         <li><%= booking.status %></li>
-     </ul>
-         </div>
-    <% end %>
+          <h2><%= booking.animal.name %></h2>
+            <ul>
+              <li><%= booking.date_in %></li>
+              <li><%= booking.date_out %></li>
+              <li><%= booking.status %></li>
+            </ul>
+            <%= link_to "More info", animal_booking_path(booking.animal, booking) %>
+        </div>
+      <% end %>
     </div>
   </div>
+
