@@ -1,7 +1,12 @@
 class AnimalsController < ApplicationController
   before_action :set_animal, only: %I[show edit update dead]
   def index
-    @animals = Animal.all
+    if params["search"].nil?
+      @animals = Animal.all
+    else
+      search = params["search"]["query"]
+      @animals = Animal.select { |animal| animal.city == search }
+    end
   end
 
   def show
@@ -38,6 +43,7 @@ class AnimalsController < ApplicationController
     @animal.save
     redirect_to animal_path(@animal)
   end
+
 
   private
 
