@@ -13,5 +13,6 @@
       <%= link_to "Kill my #{@animal.name}", dead_animal_path(@animal), data: {confirm: "Killing #{@animal.name} ?"}, class: "mt-2 btn btn-outline-warning"%>
     </div>
   </div>
-</div>
 
+  <%= link_to "Book animal", new_animal_booking(@animal) %>
+</div>

@@ -1,5 +1,5 @@
 
-<%= simple_form_for(@booking) do |f| %>
+<%= simple_form_for [@animal, @booking] do |f| %>
   <%= f.input :date_in  %>
   <%= f.input :date_out %>
   <%= f.submit 'Create new booking', class: 'btn btn-primary' %>
