@@ -10,6 +10,7 @@ gem 'redis'
 gem 'devise'
 
 gem 'autoprefixer-rails'
+gem 'dotenv-rails', groups: [:development, :test]
 gem 'font-awesome-sass', '~> 5.6.1'
 gem 'sassc-rails'
 gem 'simple_form'
