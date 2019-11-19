@@ -1,14 +1,8 @@
-<div class="container">
-  <div class="row">
-    <div class="col-6 mt-3">
-      <h1 class="mb-4">Update booking for <%= @booking.animal.name %>the<%= @booking.animal.breed %></h1>
-      <%= simple_form_for(@booking) do |f| %>
-        <%= f.input :date_in  %>
-        <%= f.input :date_out %>
-        <%= f.input :status, :collection ['pending', 'confirmed', 'declined', 'completed'] %>
-        <%= f.submit 'Edit booking', class: 'btn btn-outline-success' %>
-        <div class="btn btn-outline-warning ml-2"><%= link_to 'take me back to my bookings', booking_path(@booking) %></div>
-      <% end %>
-    </div>
-  </div>
+ <div class="container mt-5">
+  <h1>Edit booking status</h1>
+  <%= simple_form_for [@booking.animal, @booking] do |f| %>
+    <%= f.input :status, collection: ['pending', 'confirmed', 'declined', 'completed'] %>
+    <%= f.submit 'Confirm', class: 'btn btn-primary' %>
+    <%= link_to 'Cancel', animal_booking_path(@booking.animal, @booking), class: 'btn btn-secondary' %>
+  <% end %>
 </div>
