@@ -39,7 +39,7 @@ class AnimalsController < ApplicationController
 
     @animal.dead = true
     @animal.save
-    redirect_to dead_animal_path(@animal)
+    redirect_to animal_path(@animal)
   end
 
   private
