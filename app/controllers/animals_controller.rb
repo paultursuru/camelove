@@ -1,5 +1,5 @@
 class AnimalsController < ApplicationController
-  before_action :set_animal, only: %I[show edit update]
+  before_action :set_animal, only: %I[show edit update dead]
   def index
     @animals = Animal.all
   end
@@ -31,6 +31,15 @@ class AnimalsController < ApplicationController
     else
       render :edit
     end
+  end
+
+
+
+  def dead
+
+    @animal.dead = true
+    @animal.save
+    redirect_to dead_animal_path(@animal)
   end
 
   private

@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2019_11_19_102319) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "dead", default: false
     t.index ["user_id"], name: "index_animals_on_user_id"
   end
 
