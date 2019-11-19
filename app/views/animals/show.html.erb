@@ -14,11 +14,10 @@
         <p><%= @animal.description %></p>
         <p><%= @animal.price %>€/day</p>
     <!-- add cloudinary photo here -->
-      <%= link_to "add details to my #{@animal.breed}", edit_animal_path(@animal), class: "btn btn-outline-success" %>
-      <%= link_to "Kill my #{@animal.name}", dead_animal_path(@animal), data: {confirm: "Killing #{@animal.name} ?"}, class: "mt-2 btn btn-outline-warning"%>
+      <%= link_to "Update #{@animal.name}", edit_animal_path(@animal), class: "btn btn-info" %>
+      <%= link_to "Kill #{@animal.name}", dead_animal_path(@animal), data: {confirm: "Killing #{@animal.name} ?"}, class: "mt-2 btn btn-danger"%>
+      <%= link_to "Book #{@animal.name}", new_animal_booking_path(@animal), class: 'mt-2 btn btn-primary' %>
     </div>
     <% end %>
   </div>
-
-  <%= link_to "Book animal", new_animal_booking_path(@animal) %>
 </div>
