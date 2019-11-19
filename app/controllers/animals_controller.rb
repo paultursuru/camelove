@@ -5,7 +5,7 @@ class AnimalsController < ApplicationController
       @animals = Animal.all
     else
       search = params["search"]["query"]
-      @animals = Animal.select { |animal| animal.city == search }
+      @animals = Animal.select { |animal| animal.city.strip.downcase == search.downcase.strip }
     end
   end
 
