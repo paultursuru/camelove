@@ -14,8 +14,8 @@
               <li><%= booking.date_in %></li>
               <li><%= booking.date_out %></li>
               <li><%= booking.status %></li>
+              <%= link_to "More info", animal_booking_path(booking.animal, booking), class: 'btn btn-primary' %>
             </ul>
-            <%= link_to "More info", animal_booking_path(booking.animal, booking) %>
         </div>
       <% end %>
     </div>
