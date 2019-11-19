@@ -1,10 +1,24 @@
- <h2 class="mt-5">Animal list</h2>
- <ul>
-   <% @animals.each do |animal| %>
-   <li><%= animal.name %></li>
-   <li><%= animal.breed %></li>
-   <li><%= animal.price %>€ per day</li>
-   <li><%= animal.photo %></li>
-   <% end %>
- </ul>
+ <div class="container mt-5">
+
+    <div class="row pt-4">
+      <div class="col-12">
+      <h2 >Animal list</h2>
+      </div>
+   </div>
+
+  <div class="row pt-4">
+       <% @animals.each do |animal| %>
+
+        <div class="card col-4 ml-3">
+     <ul>
+         <li><%= animal.name %></li>
+         <li><%= animal.breed %></li>
+         <li><%= animal.price %>€ per day</li>
+         <li><%= animal.photo %></li>
+    <%= link_to 'More info', animal_path(animal)%>
+     </ul>
+         </div>
+    <% end %>
+    </div>
+  </div>
 
