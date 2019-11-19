@@ -1,1 +1,24 @@
 // Specific CSS for your home-page
+
+.carte-verticale-template {
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.cvert-photo {
+  max-width: 100%;
+}
+
+.cvert-inf {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+
+}
+
+.cvert-text {
+  font-family: 'Roboto Slab', serif;
+   max-width: 60%;
+}
+
