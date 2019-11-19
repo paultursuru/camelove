@@ -13,10 +13,23 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    @booking.user = current_user
+    @animal = Animal.find(params[:animal_id])
     if @booking.save
       redirect_to booking_path(@booking)
     else
       render :new
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @booking.update(booking_params)
+      redirect_to @booking, notice: "Your booking was successfully updated."
+    else
+      render :edit
     end
   end
 
