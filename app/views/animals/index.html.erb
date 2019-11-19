@@ -8,16 +8,17 @@
 
   <div class="row pt-4">
        <% @animals.each do |animal| %>
-
-        <div class="card col-4 ml-3">
-     <ul>
-         <li><%= animal.name %></li>
-         <li><%= animal.breed %></li>
-         <li><%= animal.price %>€ per day</li>
-         <li><%= animal.photo %></li>
-    <%= link_to 'More info', animal_path(animal)%>
-     </ul>
-         </div>
+         <% if animal.dead == false %>
+          <div class="card col-4 ml-3">
+            <ul>
+             <li><%= animal.name %></li>
+             <li><%= animal.breed %></li>
+             <li><%= animal.price %>€ per day</li>
+             <li><%= animal.photo %></li>
+              <%= link_to 'More info', animal_path(animal)%>
+           </ul>
+          </div>
+      <% end %>
     <% end %>
     </div>
   </div>
