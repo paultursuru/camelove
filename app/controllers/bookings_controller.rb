@@ -16,10 +16,16 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @animal = Animal.find(params[:animal_id])
     if @booking.save
-      redirect_to booking_path(@booking)
+      redirect_to bookings_path
     else
       render :new
     end
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to animal_path(@booking.animal)
   end
 
   def edit
