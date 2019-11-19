@@ -1,4 +1,12 @@
 class BookingsController < ApplicationController
+  before_action :set_booking, only: %I[show edit update]
+  def index
+    @bookings = Booking.all
+  end
+
+  def show
+  end
+
   def new
     @booking = Booking.new
   end
@@ -10,5 +18,14 @@ class BookingsController < ApplicationController
     else
       render :new
     end
+  
+  private
+
+  def booking_params
+    params.require(:booking).permit(:date_in, :date_out, :review_rating, :review_description, :status)
+  end
+
+  def set_booking
+    @booking = Booking.find(params[:id])
   end
 end
