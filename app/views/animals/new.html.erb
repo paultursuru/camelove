@@ -1,12 +1,19 @@
 
-<%= simple_form_for(@animal) do |f| %>
-  <%= f.input :name  %>
-  <%= f.input :breed, collection: ['Alpaga', 'Camel','Llama'] %>
-  <%= f.input :age %>
-  <%= f.input :colour %>
-  <%= f.input :city %>
-  <%= f.input :description %>
-  <%= f.input :photo %>
-  <%= f.input :price %>
-  <%= f.submit 'Add my animal', class: 'btn btn-outline-success ml-2' %>
-<% end %>
+
+<div class="container mt-5">
+  <h2>Add an animal</h2>
+  <%= simple_form_for(@animal) do |f| %>
+    <%= f.input :name  %>
+    <%= f.input :breed, collection: ['Alpaga', 'Camel','Llama'] %>
+    <%= f.input :age %>
+    <%= f.input :colour %>
+    <%= f.input :city %>
+    <%= f.input :description %>
+    <%= f.input :photo %>
+    <%= f.input :price %>
+    <div class='d-flex'>
+      <%= link_to 'Cancel', animals_path, class: 'btn btn-info' %>
+      <%= f.submit 'Add my animal', class: 'btn btn-primary ml-2' %>
+    </div>
+  <% end %>
+</div>
