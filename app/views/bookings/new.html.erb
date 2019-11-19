@@ -1,0 +1,6 @@
+
+<%= simple_form_for(@booking) do |f| %>
+  <%= f.input :date_in  %>
+  <%= f.input :date_out %>
+  <%= f.submit 'Create new booking', class: 'btn btn-outline-success ml-2' %>
+<% end %>
