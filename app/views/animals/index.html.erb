@@ -6,20 +6,31 @@
     </div>
   </div>
 
-  <div class="row pt-4">
+  <div class="cards">
     <% @animals.each do |animal| %>
-      <% if animal.dead == false %>
-        <div class="card col-4 ml-3">
-          <h2><%= animal.name %></h2>
-          <ul>
-            <li>Breed: <%= animal.breed %></li>
-            <li><%= animal.price %>€ per day</li>
-         </ul>
-            <%= link_to 'More info', animal_path(animal), class: 'btn btn-primary' %>
-        </div>
+    <div class="card-trip">
+      <%  if animal.photo.class == String  %>
+      <img src="https://i.pinimg.com/originals/e9/2e/40/e92e408aac9f853b4a03173859f91d87.jpg" alt="">
+      <% else %>
+      <%= cl_image_tag animal.photo.key %>
       <% end %>
-    <% end %>
+      <div class="card-trip-infos">
+        <div>
+          <h2><%= animal.name %></h2>
+          <p><%= animal.breed %></p>
+          <p><%= animal.description %></p>
+          <% ratings = [] %>
+          <p><i class="far fa-star"></i><% animal.bookings.each do |booking| %>
+          <% ratings << booking.review_rating.to_i %>
+          <% end %>
+          <% average = ratings.sum.fdiv(ratings.size) %>
+          <%= average.nan? ? "no ratings" : ratings.sum.fdiv(ratings.size) %></p>
+        </div>
+        <h2 class="card-trip-pricing">€<%= animal.price %></h2>
+        </div>
+        <%= link_to 'More info', animal_path(animal), class: 'btn btn-outline-primary mb-3 ml-3' %>
     </div>
+    <% end %>
   </div>
 
   <div
