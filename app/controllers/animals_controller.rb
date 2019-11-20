@@ -1,11 +1,11 @@
 class AnimalsController < ApplicationController
   before_action :set_animal, only: %I[show edit update dead]
   def index
-    if params["search"].nil?
-      @animals = Animal.geocoded
+    if params["search"]["query"].blank?
+      @animals = Animal.all
     else
       search = params["search"]["query"]
-      @animals = Animal.geocoded.select { |animal| animal.address.strip.downcase == search.downcase.strip }
+      @animals = Animal.near(search, 10)
     end
 
     @markers = @animals.map do |animal|

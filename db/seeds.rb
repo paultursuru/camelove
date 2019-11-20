@@ -37,7 +37,7 @@ User.destroy_all
       breed: ['Alpaga', 'Camel','Llama'].sample,
       age: Faker::Number.between(from: 1, to: 20),
       colour: Faker::Color.hex_color,
-      city: Faker::Address.city,
+      address: Faker::Address.city,
       price: Faker::Number.between(from: 20, to: 200),
       description: Faker::Marketing.buzzwords,
       # photo: "https://source.unsplash.com/600x400/?llama"
