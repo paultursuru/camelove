@@ -46,4 +46,3 @@ anais.photo.attach(io: file, filename: "some-image.jpg", content_type: 'image/jp
 anais.save!
 puts "anais ok"
 
-puts "Finished!"
