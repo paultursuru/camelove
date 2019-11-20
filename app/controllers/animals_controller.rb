@@ -2,10 +2,19 @@ class AnimalsController < ApplicationController
   before_action :set_animal, only: %I[show edit update dead]
   def index
     if params["search"].nil?
-      @animals = Animal.all
+      @animals = Animal.geocoded
     else
       search = params["search"]["query"]
-      @animals = Animal.select { |animal| animal.city.strip.downcase == search.downcase.strip }
+      @animals = Animal.geocoded.select { |animal| animal.address.strip.downcase == search.downcase.strip }
+    end
+
+    @markers = @animals.map do |animal|
+      {
+       lat: animal.latitude,
+       lng: animal.longitude,
+       infoWindow: render_to_string(partial: "info_window", locals: { animal: animal }),
+       image_url: helpers.asset_url('https://mpng.pngfly.com/20180714/tvc/kisspng-llama-clip-art-llama-llama-5b49a4f52f0ab9.5142269715315530131927.jpg')
+      }
     end
   end
 
@@ -48,7 +57,7 @@ class AnimalsController < ApplicationController
   private
 
   def animal_params
-    params.require(:animal).permit(:name, :age, :city, :price, :photo, :description, :breed, :colour)
+    params.require(:animal).permit(:name, :age, :address, :price, :photo, :description, :breed, :colour)
   end
 
   def set_animal
