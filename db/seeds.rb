@@ -75,7 +75,6 @@ end
 
 
 
-
 # User.destroy_all
 
 # alexia = User.new(
