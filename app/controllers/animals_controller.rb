@@ -5,7 +5,7 @@ class AnimalsController < ApplicationController
       @animals = Animal.geocoded
     else
       search = params["search"]["query"]
-      @animals = Animal.geocoded.select { |animal| animal.address.strip.downcase == search.downcase.strip }
+      @animals = Animal.near(search, 25)
     end
 
     @markers = @animals.map do |animal|

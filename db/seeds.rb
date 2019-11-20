@@ -37,7 +37,7 @@ User.destroy_all
       breed: ['Alpaga', 'Camel','Llama'].sample,
       age: Faker::Number.between(from: 1, to: 20),
       colour: Faker::Color.hex_color,
-      city: Faker::Address.city,
+      address: ["103 rue Petite Fusterie, Bordeaux", "41-61 Rue Centrale, La Clayette ", "67 Rue Abbé de l'Épée, Marseille", "6 Rue Ferdinand Duval, Paris", "24 rue voltaire, Paris", "villa gaudelet, paris"].sample,
       price: Faker::Number.between(from: 20, to: 200),
       description: Faker::Marketing.buzzwords,
       # photo: "https://source.unsplash.com/600x400/?llama"
