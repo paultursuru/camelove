@@ -1,15 +1,30 @@
- <div class="container">
+<div class="container">
 
-  <h2 class="mt-5"><%= @booking.animal.name %></h2>
+  <h2 class="mt-5">Booking #<%= @booking.id %></h2>
 
   <ul>
-    <li><%= @booking.date_in %></li>
-    <li><%= @booking.date_out %></li>
-    <li><%= @booking.status %></li>
+    <li>Animal name: <b><%= @booking.animal.name %></b></li>
+    <li>Date in: <%= @booking.date_in %></li>
+    <li>Date out: <%= @booking.date_out %></li>
+    <li>Status: <%= @booking.status %></li>
   </ul>
 
-  <p><%= link_to "Change booking status", edit_animal_booking_path(@booking.animal, @booking), class: "mt-2 btn btn-danger"%></p>
-  <p><%= link_to "Delete booking", animal_booking_path(@booking.animal), method: :delete, data: { confirm: "Delete Booking?"}, class: "mt-2 btn btn-danger"%></p>
-  <p><%= link_to "Back to bookings", animal_bookings_path, class: 'btn btn-secondary' %></p>
+  <% unless @booking.review_rating.nil? %>
+    <div class="card mb-3">
+      <div class="card-body">
+        <p>Review from: <b><%= @booking.user.first_name %> <%= @booking.user.last_name %></b></p>
+        <p><%= '⭐️' * @booking.review_rating %></p>
+        <p><%= @booking.review_description %></p>
+      </div>
+    </div>
+  <% else %>
+    <% if @booking.status == 'completed' %>
+      <p><%= link_to "Add review", edit_animal_booking_path(@booking.animal, @booking), class: 'btn btn-secondary' %></p>
+    <% else %>
+      <p><%= link_to "Change booking status", edit_animal_booking_path(@booking.animal, @booking), class: "mt-2 btn btn-secondary"%></p>
+    <% end %>
+  <% end %>
 
+  <p><%= link_to "Delete booking", animal_booking_path(@booking.animal), method: :delete, data: { confirm: "Delete Booking?"}, class: "btn btn-danger"%></p>
+  <p><%= link_to "Back to bookings", animal_bookings_path, class: 'btn btn-secondary' %></p>
  </div>

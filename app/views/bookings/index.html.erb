@@ -9,11 +9,12 @@
   <div class="row pt-4">
       <% @bookings.each do |booking| %>
         <div class="card col-4 ml-3">
-          <h2><%= booking.animal.name %></h2>
+          <h2>Booking #<%= booking.id %></h2>
             <ul>
-              <li><%= booking.date_in %></li>
-              <li><%= booking.date_out %></li>
-              <li><%= booking.status %></li>
+              <li>Animal name: <b><%= booking.animal.name %></b></li>
+              <li>Date in: <%= booking.date_in %></li>
+              <li>Date out: <%= booking.date_out %></li>
+              <li>Status: <%= booking.status %></li>
               <%= link_to "More info", animal_booking_path(booking.animal, booking), class: 'btn btn-primary' %>
             </ul>
         </div>
