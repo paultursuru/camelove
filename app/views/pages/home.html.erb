@@ -14,21 +14,36 @@
 </div>
 
 <div class="container mt-3">
-  <h2>Recommendations (cards per city of best llamas to rent)</h2>
-
-
-     <div class="carte-verticale-template">
-      <img class="cvert-photo" src="../../assets/images/sexy_lama.jpeg" alt="sexy_lama">
-      <div class="cvert-inf">
-        <div class="cvert-text">
-          <h1>A TEXT</h1>
-          <p> lorem ipsum et ete etetetetteettetette</p>
+  <h2>The best animals</h2>
+  <p>Discover a selection of the best rated camelidae in the world</p>
+  <div class="cards">
+    <% @animals.each do |animal| %>
+    <div class="card-trip">
+      <%  if animal.photo.class == String  %>
+      <img src="https://i.pinimg.com/originals/e9/2e/40/e92e408aac9f853b4a03173859f91d87.jpg" alt="">
+      <% else %>
+      <%= cl_image_tag animal.photo.key %>
+      <% end %>
+      <div class="card-trip-infos">
+        <div>
+          <h2><%= animal.name %></h2>
+          <p><%= animal.description %></p>
+          <% ratings = [] %>
+          <p><i class="far fa-star"></i><% animal.bookings.each do |booking| %>
+          <% ratings << booking.review_rating.to_i %>
+          <% end %>
+          <% average = ratings.sum.fdiv(ratings.size) %>
+          <%= average.nan? ? "no ratings" : ratings.sum.fdiv(ratings.size) %></p>
         </div>
-         <div class="cvert-icon">
-          <p>try font</p>
-         </div>
-      </div>
+        <h2 class="card-trip-pricing">€<%= animal.price %></h2>
+        <%= cl_image_tag current_user.photo.key, width: 60, height: 50, crop: :thumb, gravity: :face, class: "card-trip-user avatar" %>
+        </div>
     </div>
+    <% end %>
+  </div>
 </div>
+
+<!--  <#%= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill %>
+ -->
 
 

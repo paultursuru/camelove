@@ -9,7 +9,7 @@
     <%= f.input :colour %>
     <%= f.input :address %>
     <%= f.input :description %>
-    <%= f.input :photo %>
+    <%= f.input :photo, as: :file %>
     <%= f.input :price %>
     <div class='d-flex'>
       <%= link_to 'Cancel', animals_path, class: 'btn btn-info' %>
