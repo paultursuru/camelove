@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :bookings
   end
 
-  get'animals/:id/dead', to: 'animals#dead', as: :dead_animal
+  get 'dashboard', to: 'pages#dashboard', as: :dashboard
+  get 'animals/:id/dead', to: 'animals#dead', as: :dead_animal
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
