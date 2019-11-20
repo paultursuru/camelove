@@ -30,7 +30,7 @@ class AnimalsController < ApplicationController
     @animal.user = current_user
 
     if @animal.save
-      redirect_to animals_path
+      redirect_to dashboard_path
     else
       render :new
     end
@@ -50,7 +50,7 @@ class AnimalsController < ApplicationController
   def dead
     @animal.dead = true
     @animal.save
-    redirect_to animal_path(@animal)
+    redirect_to dashboard_path(@animal)
   end
 
 
