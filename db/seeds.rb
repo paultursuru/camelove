@@ -13,7 +13,7 @@ Animal.destroy_all
 User.destroy_all
 
 
-10.times do
+5.times do
   random_name = Faker::Name.middle_name
   random_name_llama = Faker::Name.middle_name
 
@@ -40,14 +40,14 @@ User.destroy_all
       city: Faker::Address.city,
       price: Faker::Number.between(from: 20, to: 200),
       description: Faker::Marketing.buzzwords,
-      photo: "https://source.unsplash.com/600x400/?llama"
+      # photo: "https://source.unsplash.com/600x400/?llama"
       )
     random_name_llama.user_id = random_name.id
     puts "#{random_name_llama.name} ok"
     puts "breed : #{random_name_llama.breed}"
     # random_name_llama.photo = "https://source.unsplash.com/600x400/?llama"
-    # file = URI.open("https://source.unsplash.com/600x400/?llama")
-    # random_name_llama.photo.attach(io: file, filename: "some-image.jpg", content_type: 'image/jpg')
+    file = URI.open("https://source.unsplash.com/600x400/?llama")
+    random_name_llama.photo.attach(io: file, filename: "some-image.jpg", content_type: 'image/jpg')
     random_name_llama.save!
     puts "photo added"
 
