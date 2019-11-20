@@ -2,9 +2,11 @@ class Animal < ApplicationRecord
   has_many :bookings
   belongs_to :user
 
+  validates :name, presence: true
+
   has_one_attached :photo
 
-  validates :name, presence: true, uniqueness: true
+
   validates :breed, presence: true
   validates :age, presence: true
   validates :colour, presence: true

@@ -9,6 +9,7 @@ gem 'rails', '5.2.3'
 gem 'redis'
 gem 'devise'
 gem 'cloudinary'
+gem 'faker'
 
 gem 'autoprefixer-rails'
 gem 'dotenv-rails', groups: [:development, :test]
