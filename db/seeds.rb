@@ -7,6 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 User.destroy_all
 
+puts "Creating users"
+
 alexia = User.new(
   first_name: 'Alexia',
   last_name: 'Jolly',
@@ -16,7 +18,7 @@ alexia = User.new(
   )
 file = URI.open("https://lh3.googleusercontent.com/0orgEU0W5HH1rpmy_xLZjKDr43mWLBrBymNSHiA1mc3LJGLmEuJPRC2JkLw-1xTeeNp6O5UEvQmXhQTRG_21XccCOv-TEPlDUz5Oo6CmHZk2rummUNT0KGM0HEpby6_N3joRuodCZg=w2414-h1606-no")
 alexia.photo.attach(io: file, filename: "some-image.jpg", content_type: 'image/jpg')
-alexia.save
+alexia.save!
 puts "alexia ok"
 
 anniou = User.new(
@@ -28,7 +30,7 @@ anniou = User.new(
   )
 file = URI.open("https://lh3.googleusercontent.com/_39ILGN-UgKW5iAQ5PlFGuvMKL1d-cfw8s97Jj2_eJoKjhILqMB_NaG0y-0mnM9kKy_RUYSxgUjU6P27HD7cHsKx4Kazs5I9cqZ7gjEY-qUR7l2GLqbsQF49hq7gRbEPfRFmYCuEOw=w461-h307-no")
 anniou.photo.attach(io: file, filename: "some-image.jpg", content_type: 'image/jpg')
-anniou.save
+anniou.save!
 puts "anniou ok"
 
 anais = User.new(
@@ -41,6 +43,7 @@ anais = User.new(
 
 file = URI.open('https://lh3.googleusercontent.com/DoCbT4RNcjrh0K5a6TdzszDjUCQjgQuAD9CFFofnwVJli8FPpHnkxA2Thll90Iy30t3sRhlBSHw5EVDLsp0wUB_0q2lE0z4oZa-lXka7THA-cjoyWBj8BqJrGGQwAhowtukCf-j6nKc=w2414-h1606-no')
 anais.photo.attach(io: file, filename: "some-image.jpg", content_type: 'image/jpg')
-anais.save
+anais.save!
 puts "anais ok"
 
+puts "Finished!"
