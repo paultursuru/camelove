@@ -13,6 +13,7 @@ Animal.destroy_all
 User.destroy_all
 
 
+
 5.times do
   random_name = Faker::Name.middle_name
   random_name_llama = Faker::Name.middle_name
