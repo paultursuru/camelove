@@ -1,0 +1,24 @@
+ <div class="container">
+  <div class="d-flex justify-content-between pt-4">
+    <h2 >Animal list</h2>
+    <div>
+      <%= link_to 'Add an animal', new_animal_path, class: 'btn btn-primary' %>
+    </div>
+  </div>
+
+  <div class="row pt-4">
+    <% @animals.each do |animal| %>
+      <% if animal.dead == false %>
+        <div class="card col-4 ml-3">
+          <h2><%= animal.name %></h2>
+          <ul>
+            <li>Breed: <%= animal.breed %></li>
+            <li><%= animal.price %>€ per day</li>
+         </ul>
+            <%= link_to 'More info', animal_path(animal), class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+    <% end %>
+    </div>
+  </div>
+
