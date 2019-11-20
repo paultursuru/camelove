@@ -12,6 +12,7 @@ Booking.destroy_all
 Animal.destroy_all
 User.destroy_all
 
+
 10.times do
   random_name = Faker::Name.middle_name
   random_name_llama = Faker::Name.middle_name
@@ -113,4 +114,3 @@ end
 # anais.photo.attach(io: file, filename: "some-image.jpg", content_type: 'image/jpg')
 # anais.save
 # puts "anais ok"
-

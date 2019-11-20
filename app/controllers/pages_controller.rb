@@ -2,6 +2,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
   before_action :get_animals, only: :dashboard
   def home
+    @animals = Animal.all.sample(6)
   end
 
   def dashboard
