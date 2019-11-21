@@ -31,7 +31,7 @@
         <div>
           <h2><%= animal.name %></h2>
           <p><%= animal.breed %></p>
-          <p><%= animal.description %></p>
+          <p><%= animal.description.slice(0, 33) %> <%= animal.description.length > 33 ? "..." : "" %></p>
           <% ratings = [] %>
           <p><i class="far fa-star"></i><% animal.bookings.each do |booking| %>
           <% ratings << booking.review_rating.to_i %>
