@@ -5,22 +5,48 @@
       </div>
    </div>
 
-  <div class="row pt-4 d-flex justify-content-between">
+
+
+
+    <div class="row pt-4 d-flex justify-content-between">
       <% @bookings.each do |booking| %>
-        <div class="card-trip m-4">
-        <div class="card-trip-infos">
-          <div>
-            <h2> <b>Animal name: </b> <%= booking.animal.name %></h2>
-              <p>Date in: <%= booking.date_in %></p>
-              <p>Date out: <%= booking.date_out %></p>
-              <p>Status: <%= booking.status %></p>
-          <%= link_to "More info", animal_booking_path(booking.animal, booking), class: 'btn btn-outline-primary mb-2 ml-2 mt-2' %>
+        <% if booking.status != 'completed' %>
+
+          <div class="card-trip m-4">
+            <div class="card-trip-infos">
+              <div>
+                <h2><b>Animal name: </b> <%= booking.animal.name %></h2>
+                  <p>Date in: <%= booking.date_in %></p>
+                  <p>Date out: <%= booking.date_out %></p>
+                  <p>Status: <%= booking.status %></p>
+                  <%= link_to "More info", animal_booking_path(booking.animal, booking), class: 'btn btn-outline-primary mb-2 ml-2 mt-2' %>
+              </div>
+            </div>
           </div>
-        </div>
+        <% end %>
+       <% end %>
       </div>
+  </div>
+
+  <div class="col-12">
+    <h2>Booking history</h2>
+    <div class="booking_history">
+     <% @bookings.each do |booking| %>
+      <% if booking.status = 'completed' %>
+
+         <div class="booking_animal_card">
+           <h3><%= booking.animal.name %></h3>
+            <p>from</p>
+            <div class="date_review_container d-flex justify-content-between">
+              <p><%= booking.date_in %> to <%= booking.date_out %></p>
+              <p> <%= link_to "Add a Review", animal_booking_path(booking.animal, booking) %></p>
+            </div>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>
+
 
 
 
