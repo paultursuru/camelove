@@ -6,7 +6,7 @@
 }
 
 .card-trip > img {
-  height: 200px;
+  height: 280px;
   width: 100%;
   object-fit: cover;
 }
@@ -17,17 +17,24 @@
   margin: 0;
 }
 
-.card-trip p {
-  font-size: 12px;
-  opacity: .7;
+.card-trip h1 {
+  font-size: 32px;
+  font-weight: bold;
   margin: 0;
+  padding-bottom: 20px;
+}
+
+.card-trip p {
+  font-size: 14px;
+  opacity: .7;
+  margin-bottom: 4px;
 }
 
 
 .card-trip .card-trip-infos {
   padding: 16px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: flex-end;
   position: relative;
 }
@@ -38,6 +45,11 @@
   top: -20px;
   width: 40px;
 }
+
+
+.card-basic-info {
+    margin-bottom: 24px;
+  }
 
 .cards {
 display: grid;
@@ -58,6 +70,10 @@ grid-gap: 16px;
   grid-auto-rows: auto;
 
 }
+
+.calendar_booking {
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    padding :20px;
 
 .small:hover {
   transform: scale(1.05);

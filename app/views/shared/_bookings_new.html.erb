@@ -1,0 +1,7 @@
+<%= simple_form_for [@animal, booking] do |f| %>
+  <%= f.input :date_in, as: :string, required: false, input_html: {id: "range_start" }  %>
+  <%= f.input :date_out, as: :string, required: false, input_html: {id: "range_end" } %>
+  <%= f.submit "Book #{@animal.name}", class: 'btn btn-primary' %>
+<% end %>
+
+
