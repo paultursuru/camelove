@@ -17,5 +17,12 @@ class PagesController < ApplicationController
     @animals = current_user.animals # Animal.where(user: current_user)
     # @animal = Animal.new
     @bookings = current_user.bookings
+    # @requests = current_user.requests
+    @requests = []
+    current_user.animals.each do |animal|
+      animal.bookings.each do |b|
+        @requests << b
+      end
+    end
   end
 end
