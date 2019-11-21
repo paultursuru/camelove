@@ -3,20 +3,6 @@
   <% if @animal.dead %>
     <h2> Nos Vemos pronto </h2>
   <% else %>
-<!--   <div class="card">
-    <div class="card-body">
-      <p>My <%= @animal.breed.downcase %> is <%= @animal.age %></p>
-      <p>It leaves in <%= @animal.address %></p>
-      <p>Its hairs are <%= @animal.colour %></p>
-      <h5>Here is more info to convince you :</h5>
-      <p><%= @animal.description %></p>
-      <p><%= @animal.price %>€/day</p>
-      <#%= link_to "Update #{@animal.name}", edit_animal_path(@animal), class: "btn btn-primary" %>
-      <#%= link_to "Kill #{@animal.name}", dead_animal_path(@animal), data: {confirm: "Killing #{@animal.name} ?"}, class: "btn btn-danger"%>
-      <#%= link_to "Book #{@animal.name}", new_animal_booking_path(@animal), class: 'btn btn-primary' %>
-      <#%= link_to "Back to my animals", animals_path, class: 'btn btn-secondary' %>
-    </div>
-  </div> -->
   <div class="card">
     <div class="card-trip">
       <%  if @animal.photo.class == String  %>
