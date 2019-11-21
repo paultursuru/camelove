@@ -96,7 +96,7 @@ diva.photo.attach(io: file, filename: "some-image.jpg", content_type: 'image/jpg
 diva.save!
 
 
-puts "Creating Serge (renter) and 1 completed booking..."
+puts "Creating Serge (renter) and some bookings..."
 serge = User.new(
   first_name: 'Serge',
   last_name: 'Lama',
@@ -116,6 +116,15 @@ booking_polly = Booking.new(
 booking_polly.animal_id = polly.id
 booking_polly.user_id = serge.id
 booking_polly.save!
+
+booking_jazz = Booking.new(
+  date_in: 'Mon, 10 Dec 2019',
+  date_out: 'Sun, 15 Dec 2019',
+  status: 'confirmed'
+  )
+booking_jazz.animal_id = jazz.id
+booking_jazz.user_id = serge.id
+booking_jazz.save!
 
 # puts "Creating other users with animals and bookings..."
 # 5.times do
