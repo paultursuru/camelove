@@ -2,6 +2,7 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  color: #141823;
 }
 
 .card-trip > img {
@@ -73,4 +74,11 @@ grid-gap: 16px;
 .calendar_booking {
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
     padding :20px;
+
+.small:hover {
+  transform: scale(1.05);
+}
+
+a:hover {
+  text-decoration: none;
 }

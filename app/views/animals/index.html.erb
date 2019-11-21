@@ -16,9 +16,9 @@
     </div>
   </div>
 
-  <div class="cards">
+    <div class="cards">
     <% @animals.each do |animal| %>
-    <div class="card-trip">
+    <div class="card-trip small">
       <%  if animal.photo.class == String  %>
       <img src="https://i.pinimg.com/originals/e9/2e/40/e92e408aac9f853b4a03173859f91d87.jpg" alt="">
       <% else %>
@@ -37,10 +37,16 @@
           <%= average.nan? ? "no ratings" : ratings.sum.fdiv(ratings.size) %></p>
         </div>
         <h2 class="card-trip-pricing">€<%= animal.price %></h2>
+        <%= cl_image_tag animal.user.photo.key, width: 60, height: 50, crop: :thumb, gravity: :face, class: "card-trip-user avatar" %>
         </div>
         <%= link_to 'More info', animal_path(animal), class: 'btn btn-outline-primary mb-3 ml-3' %>
     </div>
     <% end %>
   </div>
+
+
+
+
+
 
 
