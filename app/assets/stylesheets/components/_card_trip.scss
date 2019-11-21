@@ -2,6 +2,7 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  color: #141823;
 }
 
 .card-trip > img {
@@ -56,4 +57,12 @@ grid-gap: 16px;
   grid-template-columns: 1fr;
   grid-auto-rows: auto;
 
+}
+
+.small:hover {
+  transform: scale(1.05);
+}
+
+a:hover {
+  text-decoration: none;
 }

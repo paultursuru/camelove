@@ -8,37 +8,116 @@
 
 require 'faker'
 
+puts "Cleaning database..."
 Booking.destroy_all
 Animal.destroy_all
 User.destroy_all
 
-main_user = User.new(
-    first_name: "Paul",
-    last_name: "Coucou",
-    bio: "i love all the llamas and all the alpaga and all the camels and if they don't love me back i kill them",
-    email: "coucou@gmail.com",
-    password: "coucou"
-    )
-  # puts "#{random_name.first_name} ok"
-  puts "email : #{main_user.email}"
-  file = URI.open("https://source.unsplash.com/600x400/?portrait")
-  main_user.photo.attach(io: file, filename: "some-image.jpg", content_type: 'image/jpg')
-  main_user.save
-  puts "photo added"
 
-second_user = User.new(
-    first_name: "Philippe",
-    last_name: "Coucou",
-    bio: "i love all the llamas and all the alpaga and all the camels and if they don't love me back i kill them",
-    email: "salut@gmail.com",
-    password: "coucou"
-    )
-  # puts "#{random_name.first_name} ok"
-  puts "email : #{second_user.email}"
-  file = URI.open("https://source.unsplash.com/600x400/?portrait")
-  second_user.photo.attach(io: file, filename: "some-image.jpg", content_type: 'image/jpg')
-  second_user.save
-  puts "photo added"
+puts "Creating Lisa Sallou (owner) and her animals Polly and Sugar"
+lisa = User.new(
+  first_name: 'Lisa',
+  last_name: 'Sallou',
+  bio: "I love to sing songs about alpagas!",
+  email: 'lisa@sallou.com',
+  password: "123456"
+  )
+file = URI.open("https://res.cloudinary.com/darvd5cv4/image/upload/v1574336183/lisa_kzdkaq.jpg")
+lisa.photo.attach(io: file, filename: "some-image.jpg", content_type: 'image/jpg')
+lisa.save!
+
+polly = Animal.new(
+  name: 'Polly',
+  breed: 'Llama',
+  birth_date: 'Thu, 13 Oct 2016',
+  colour: 'White',
+  address: "40 rue des Trois Frères, Paris",
+  price: 120,
+  description: 'Beautiful llama that does not spot on people!',
+  )
+polly.user_id = lisa.id
+file = URI.open("https://res.cloudinary.com/darvd5cv4/image/upload/v1574336556/polly_wkmuzq.jpg")
+polly.photo.attach(io: file, filename: "some-image.jpg", content_type: 'image/jpg')
+polly.save!
+
+sugar = Animal.new(
+  name: 'Sugar',
+  breed: 'Camel',
+  birth_date: 'Thu, 13 Oct 2014',
+  colour: 'White',
+  address: "16 Villa Gaudelet, Paris",
+  price: 80,
+  description: 'Only the best camel!',
+  )
+sugar.user_id = lisa.id
+file = URI.open("https://res.cloudinary.com/darvd5cv4/image/upload/v1574336300/sugar_jlj4ab.jpg")
+sugar.photo.attach(io: file, filename: "some-image.jpg", content_type: 'image/jpg')
+sugar.save!
+
+
+puts "Creating Matthieu Michel (owner) and his animals Jazz and Diva"
+matthieu = User.new(
+  first_name: 'Matthieu',
+  last_name: 'Michel',
+  bio: "I love to sing songs about alpagas!",
+  email: 'matthieu@michel.com',
+  password: "123456"
+  )
+file = URI.open("https://res.cloudinary.com/darvd5cv4/image/upload/v1574336213/matthieu_zvvsur.jpg")
+matthieu.photo.attach(io: file, filename: "some-image.jpg", content_type: 'image/jpg')
+matthieu.save!
+
+jazz = Animal.new(
+  name: 'Jazz',
+  breed: 'Llama',
+  birth_date: 'Thu, 13 Oct 2015',
+  colour: 'Black',
+  address: "57 Boulevard des Invalides, Paris",
+  price: 150,
+  description: 'Very nice llama!',
+  )
+jazz.user_id = matthieu.id
+file = URI.open("https://res.cloudinary.com/darvd5cv4/image/upload/v1574336183/jazz_h5lawx.jpg")
+jazz.photo.attach(io: file, filename: "some-image.jpg", content_type: 'image/jpg')
+jazz.save!
+
+diva = Animal.new(
+  name: 'Diva',
+  breed: 'Camel',
+  birth_date: 'Thu, 13 Oct 2010',
+  colour: 'Brown',
+  address: "1 Rue René Panhard, Paris",
+  price: 200,
+  description: 'Nice and gentle camel.',
+  )
+diva.user_id = matthieu.id
+file = URI.open("https://res.cloudinary.com/darvd5cv4/image/upload/v1574336183/diva_zam6st.jpg")
+diva.photo.attach(io: file, filename: "some-image.jpg", content_type: 'image/jpg')
+diva.save!
+
+
+puts "Creating Serge (renter) and 1 completed booking..."
+serge = User.new(
+  first_name: 'Serge',
+  last_name: 'Lama',
+  bio: "I love to sing songs about llamas!",
+  email: 'serge@lama.com',
+  password: "123456"
+  )
+file = URI.open("https://res.cloudinary.com/darvd5cv4/image/upload/v1574336233/serge_toshsv.jpg")
+serge.photo.attach(io: file, filename: "some-image.jpg", content_type: 'image/jpg')
+serge.save!
+
+booking_polly = Booking.new(
+  date_in: 'Mon, 14 Oct 2019',
+  date_out: 'Sun, 20 Oct 2019',
+  status: 'completed'
+  )
+booking_polly.animal_id = polly.id
+booking_polly.user_id = serge.id
+booking_polly.save!
+
+# puts "Creating other users with animals and bookings..."
 # 5.times do
 #   random_name = Faker::Name.middle_name
 #   random_name_llama = Faker::Name.middle_name
@@ -55,6 +134,7 @@ second_user = User.new(
 #   file = URI.open("https://source.unsplash.com/600x400/?portrait")
 #   random_name.photo.attach(io: file, filename: "some-image.jpg", content_type: 'image/jpg')
 #   random_name.save
+#   random_name.save!
 #   puts "photo added"
 
 #   rand(0..5).times do
@@ -82,6 +162,9 @@ second_user = User.new(
 #         date_in: Faker::Date.forward(days: 10),
 #         date_out: Faker::Date.forward(days: 23),
 #         status: ['pending', 'confirmed', 'declined', 'completed'].sample
+
+#         # status: ['pending', 'confirmed', 'declined', 'completed'].sample
+#         status: 'completed'
 #         )
 #       if booking.status == 'completed'
 #         booking.review_rating =  Faker::Number.between(from: 1, to: 5)
@@ -95,6 +178,8 @@ second_user = User.new(
 #   end
 # end
 
+
+puts 'Finished!'
 
 
 
