@@ -8,12 +8,11 @@ class Animal < ApplicationRecord
 
   validates :name, presence: true
   validates :breed, presence: true
-  validates :age, presence: true
+  validates :birth_date, presence: true
   validates :colour, presence: true
   validates :address, presence: true
   validates :price, presence: true
   validates :description, presence: true
-  validates :photo, presence: true
 
   def average
     ratings = self.bookings.pluck(:review_rating)
