@@ -83,3 +83,10 @@ grid-gap: 16px;
 a:hover {
   text-decoration: none;
 }
+
+.cards-large {
+display: grid;
+grid-template-columns: 1fr;
+grid-auto-rows: auto;
+grid-gap: 16px;
+}

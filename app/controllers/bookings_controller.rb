@@ -39,8 +39,12 @@ class BookingsController < ApplicationController
   end
 
   def update
+    if params[:booking][:status].present?
+      @booking.update(status: params[:booking][:status])
+    end
+
     if @booking.update(booking_params)
-      redirect_to animal_booking_path(@booking.animal, @booking), notice: "Your booking was successfully updated."
+      redirect_to dashboard_path
     else
       render :edit
     end
