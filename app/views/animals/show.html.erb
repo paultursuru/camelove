@@ -38,9 +38,12 @@
             <p><%= '⭐️' * booking.review_rating.to_i %>   <%= booking.review_description %></p>
           <% end %>
           <div class="mt-4">
-            <%= link_to "Update #{@animal.name}", edit_animal_path(@animal), class: "btn btn-outline-primary mr-4" %>
+            <% if policy(@animal).update? %>
+              <%= link_to "Update #{@animal.name}", edit_animal_path(@animal), class: "btn btn-outline-primary mr-4" %>
             <%#= link_to "Kill #{@animal.name}", dead_animal_path(@animal), data: {confirm: "Killing #{@animal.name} ?"}, class: "btn btn-outline-primary mr-4"%>
-            <%= link_to "Book #{@animal.name}", new_animal_booking_path(@animal), class: 'btn btn-outline-primary mr-4' %>
+            <% else %>
+              <%= link_to "Book #{@animal.name}", new_animal_booking_path(@animal), class: 'btn btn-outline-primary mr-4' %>
+            <% end %>
             <%= link_to "Back to my animals", dashboard_path, class: 'btn btn-outline-primary mr-4' %>
           </div>
 

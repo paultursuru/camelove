@@ -18,13 +18,16 @@
       </div>
     </div>
   <% else %>
-    <% if @booking.status == 'completed' %>
-      <p><%= link_to "Add review", edit_animal_booking_path(@booking.animal, @booking), class: 'btn btn-secondary' %></p>
-    <% else %>
-      <p><%= link_to "Change booking status", edit_animal_booking_path(@booking.animal, @booking), class: "mt-2 btn btn-secondary"%></p>
+    <% if policy(@booking).update? %>
+        <% if @booking.status == 'completed' %>
+          <p><%= link_to "Add review", edit_animal_booking_path(@booking.animal, @booking), class: 'btn btn-secondary' %></p>
+        <% else %>
+          <p><%= link_to "Change booking status", edit_animal_booking_path(@booking.animal, @booking), class: "mt-2 btn btn-secondary"%></p>
+        <% end %>
     <% end %>
   <% end %>
 
+
   <p><%= link_to "Delete booking", animal_booking_path(@booking.animal), method: :delete, data: { confirm: "Delete Booking?"}, class: "btn btn-danger"%></p>
-  <p><%= link_to "Back to bookings", animal_bookings_path, class: 'btn btn-secondary' %></p>
+  <p><%= link_to "Back to bookings", dashboard_path, class: 'btn btn-secondary' %></p>
  </div>
