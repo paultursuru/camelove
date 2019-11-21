@@ -28,7 +28,7 @@
       <div class="card-trip-infos">
         <div>
           <h2><%= animal.name %></h2>
-          <p><%= animal.description %></p>
+          <p><%= animal.description.slice(0, 33) %><%= animal.description.length > 33 ? "..." : "" %></p>
           <p><i class="far fa-star"></i><%= animal.average %></p>
         </div>
         <h2 class="card-trip-pricing">€<%= animal.price %></h2>

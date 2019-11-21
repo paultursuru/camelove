@@ -6,7 +6,7 @@
     </div>
   </div>
 
-  <div class="row pt-4">
+  <div class="row pt-4 mb-3">
     <% @animals.each do |animal| %>
       <% if animal.dead == false %>
         <div class="card-trip">
@@ -19,7 +19,7 @@
         <div>
           <h2><%= animal.name %></h2>
           <p><%= animal.breed %></p>
-          <p><%= animal.description %></p>
+          <p><%= animal.description.slice(0, 50) %> <%= animal.description.length > 50 ? "..." : "" %></p>
           <% ratings = [] %>
           <p><i class="far fa-star"></i><%= animal.average %>
         </div>

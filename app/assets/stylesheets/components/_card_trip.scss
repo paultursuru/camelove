@@ -6,7 +6,7 @@
 }
 
 .card-trip > img {
-  height: 280px;
+  height: 200px;
   width: 100%;
   object-fit: cover;
 }
@@ -34,7 +34,7 @@
 .card-trip .card-trip-infos {
   padding: 16px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: flex-end;
   position: relative;
 }

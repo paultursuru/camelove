@@ -1,9 +1,30 @@
 <div class="container-fluid">
   <div class="row d-flex justify-content-around m-3">
-    <div class="card col-5">
+    <div class="card col-4">
       <%= render 'animals' %>
       <!-- <h2>Killed Animals</h2> -->
       <%#= render template: 'animals/dead' %>
+    </div>
+    <div class="card col-2">
+      <div class="container pt-4">
+        <h2>Requests</h2>
+        <div class="notification">
+
+          <% @bookings.each do |booking| %>
+          <% if booking.animal.user == current_user %>
+          <%= cl_image_tag booking.user.photo.key, width: 60, height: 50, crop: :thumb, gravity: :face, class: "avatar" %>
+          <div class="notification-content">
+            <p><small><%= Date.current %></small></p>
+            <p><%= booking.user.first_name %> asked to book <strong><%= booking.animal.name %></strong> on the <%= booking.date_in %> to the <%= booking.date_out %></p>
+          </div>
+          <div class="notification-actions">
+            <a href="#">Change status <i class="fas fa-pencil-alt"></i></a>
+          </div>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+
     </div>
     <div class="card col-5">
       <%= render 'bookings' %>
