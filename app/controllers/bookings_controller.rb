@@ -5,11 +5,13 @@ class BookingsController < ApplicationController
   end
 
   def show
+    authorize @booking
   end
 
   def new
     @animal = Animal.find(params[:animal_id])
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
@@ -22,15 +24,18 @@ class BookingsController < ApplicationController
     else
       render :new
     end
+    authorize @booking
   end
 
   def destroy
     @booking = Booking.find(params[:id])
+    authorize @booking
     @booking.destroy
-    redirect_to animal_bookings_path(@booking.animal)
+    redirect_to dashboard_path
   end
 
   def edit
+    authorize @booking
   end
 
   def update
@@ -39,6 +44,7 @@ class BookingsController < ApplicationController
     else
       render :edit
     end
+    authorize @booking
   end
 
   private

@@ -133,6 +133,7 @@ booking_polly.save!
 #   puts "email : #{random_name.email}"
 #   file = URI.open("https://source.unsplash.com/600x400/?portrait")
 #   random_name.photo.attach(io: file, filename: "some-image.jpg", content_type: 'image/jpg')
+#   random_name.save
 #   random_name.save!
 #   puts "photo added"
 
@@ -160,6 +161,8 @@ booking_polly.save!
 #       booking = Booking.new(
 #         date_in: Faker::Date.forward(days: 10),
 #         date_out: Faker::Date.forward(days: 23),
+#         status: ['pending', 'confirmed', 'declined', 'completed'].sample
+
 #         # status: ['pending', 'confirmed', 'declined', 'completed'].sample
 #         status: 'completed'
 #         )
@@ -174,6 +177,8 @@ booking_polly.save!
 #     end
 #   end
 # end
+
+
 puts 'Finished!'
 
 

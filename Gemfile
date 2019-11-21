@@ -10,6 +10,7 @@ gem 'redis'
 gem 'devise'
 gem 'cloudinary'
 gem 'faker'
+gem 'pundit'
 
 gem 'autoprefixer-rails'
 gem 'dotenv-rails', groups: [:development, :test]

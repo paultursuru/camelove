@@ -12,12 +12,15 @@
   <div class="d-flex justify-content-between pt-4">
     <h2 >Animal list</h2>
     <div>
-      <%= link_to 'Add an animal', new_animal_path, class: 'btn btn-primary' %>
+      <% if policy(Animal).create? %>
+        <%= link_to 'Add an animal', new_animal_path, class: 'btn btn-primary' %>
+      <% end %>
     </div>
   </div>
 
     <div class="cards">
     <% @animals.each do |animal| %>
+
     <div class="card-trip small">
       <%  if animal.photo.class == String  %>
       <img src="https://i.pinimg.com/originals/e9/2e/40/e92e408aac9f853b4a03173859f91d87.jpg" alt="">
@@ -39,10 +42,14 @@
         <h2 class="card-trip-pricing">€<%= animal.price %></h2>
         <%= cl_image_tag animal.user.photo.key, width: 60, height: 50, crop: :thumb, gravity: :face, class: "card-trip-user avatar" %>
         </div>
-        <%= link_to 'More info', animal_path(animal), class: 'btn btn-outline-primary mb-3 ml-3' %>
-    </div>
+
+          <% if policy(Animal).show? %>
+            <%= link_to 'More info', animal_path(animal), class: 'btn btn-outline-primary mb-3 ml-3' %>
+          <% end %>
+      </div>
     <% end %>
   </div>
+</div>
 
 
 
