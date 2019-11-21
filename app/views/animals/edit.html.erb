@@ -5,7 +5,7 @@
       <%= simple_form_for(@animal) do |f| %>
         <%= f.input :name  %>
         <%= f.input :breed, collection: ['Alpaga', 'Camel','Llama'] %>
-        <%= f.input :age %>
+        <%= f.input :birth_date %>
         <%= f.input :colour %>
         <%= f.input :address %>
         <%= f.input :description %>
