@@ -19,6 +19,8 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'geocoder'
+gem 'bootstrap-datepicker-rails'
+gem 'pickadate-rails'
 
 
 
