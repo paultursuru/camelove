@@ -2,6 +2,7 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: %I[show edit update]
   def index
     @bookings = Booking.all
+    raise
   end
 
   def show
@@ -10,6 +11,7 @@ class BookingsController < ApplicationController
 
   def new
     @animal = Animal.find(params[:animal_id])
+     raise
     @booking = Booking.new
     authorize @booking
   end

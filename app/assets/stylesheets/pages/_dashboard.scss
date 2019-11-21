@@ -1,15 +1,49 @@
 
+.line {
+  border-top: solid #dedbdb 1px;
+}
 .booking_animal_card {
-  border : 1px solid #d2cbcb;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 30px;
+  /*border : 1px solid #d2cbcb; */
   border-bottom: none;
+  background-color: #f1f1f1ad;
+  margin-bottom: 5px;
 }
 
+
 .booking_history {
-  border-bottom : 1px solid #d2cbcb;
-  margin-top: 4px;
-  margin-bottom: 18px;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 30px;
+
+    background: #ffffff !important;
+    /*border: 1px solid #e4e4e4 !important;
+    */
+    border-radius: 4px !important;
+    margin-bottom: 5px;
+  }
+
+.booking_history h3 {
+  width: 80px;
+  margin-left: 5px;
+  margin-top: 3px;
+ font-size: 22px;
+ padding-top: 8px;
+  }
+
+.booking_history h2 {
+    font-size: 31px;
+    margin-bottom: 22px;
+    margin-left: 5px;
+    margin-top: 5px;
+    padding-top: 5px;
+}
+
+.booking_history p {
+  width: 150px;
+}
+
+.date_review_container {
+  padding-left: 30px;
+    padding-top: 12px;
+}
+.review {
+  padding-left: 40px;
+
 }
