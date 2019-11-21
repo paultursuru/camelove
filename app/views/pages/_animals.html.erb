@@ -6,12 +6,12 @@
     </div>
   </div>
 
-  <div class="row pt-4 mb-3">
+  <div class="cards-large mt-4 mb-4">
     <% @animals.each do |animal| %>
       <% if animal.dead == false %>
         <div class="card-trip">
       <%  if animal.photo.class == String  %>
-      <img src="https://i.pinimg.com/originals/e9/2e/40/e92e408aac9f853b4a03173859f91d87.jpg" alt="">
+      <img src="https://www.solidbackgrounds.com/images/2560x1440/2560x1440-davys-grey-solid-color-background.jpg" alt="">
       <% else %>
       <%= cl_image_tag animal.photo.key %>
       <% end %>
