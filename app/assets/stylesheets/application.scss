@@ -1,3 +1,4 @@
+
 // Graphical variables
 @import "config/fonts";
 @import "config/colors";
@@ -7,6 +8,8 @@
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "pickadate/default.date";
+@import "pickadate/default.time";
 
 // Your CSS partials
 @import "components/index";
