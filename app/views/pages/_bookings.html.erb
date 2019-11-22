@@ -37,26 +37,30 @@
       <h2>Booking history</h2>
        <% @bookings.each do |booking| %>
         <% if booking.status == 'completed' %>
-           <div class="booking_animal_card w-100">
-              <div class="d-flex justify-content-between">
-                <h3><%= booking.animal.name %></h3>
-                <p><% date_in = booking.date_in %>
-                  <%= date_in.strftime('%e %b') %>
-                  <% date_out = booking.date_out %>
-                  to <%= date_out.strftime('%e %b') %></p>
-
-              </div>
-                <% unless booking.review_rating.present? %>
-                <%= link_to 'Add a review', edit_animal_booking_path(booking.animal, booking),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}  %>
-                <div id="modal-window-<%= booking.id %>" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content"></div>
-                  </div>
-                </div>
-                <% else %>
-                  <p><%= '⭐️' * booking.review_rating %> <%= booking.review_description %></p></div>
-                <% end %>
+          <div class="booking_animal_card w-100">
+            <div class="d-flex justify-content-between">
+              <h3><%= booking.animal.name %></h3>
+              <p><% date_in = booking.date_in %>
+                <%= date_in.strftime('%e %b') %>
+                <% date_out = booking.date_out %>
+                to <%= date_out.strftime('%e %b') %></p>
+            </div>
+            <% unless booking.review_rating.present? %>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-window-<%= booking.id %>">
+                Launch demo modal
+              </button>
+            <% else %>
+              <p><%= '⭐️' * booking.review_rating %> <%= booking.review_description %></p></div>
+            <% end %>
+          </div>
         <% end %>
+        <div id="modal-window-<%= booking.id %>" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <%= render 'bookings/edit', booking: booking %>
+            </div>
+          </div>
+        </div>
       <% end %>
     </div>
 </div>

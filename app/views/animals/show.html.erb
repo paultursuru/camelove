@@ -6,7 +6,7 @@
           <%  if @animal.photo.class == String  %>
             <img src="https://i.pinimg.com/originals/e9/2e/40/e92e408aac9f853b4a03173859f91d87.jpg" alt="">
           <% else %>
-            <%= cl_image_tag @animal.photo.key %>
+            <%= cl_image_tag @animal.photo.key if @animal.photo.attached? %>
           <% end %>
           <div class="animal-infos p-3" >
             <h1> <%= @animal.name %> the <%= @animal.breed %></h1>

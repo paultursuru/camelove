@@ -13,7 +13,7 @@
       <%  if animal.photo.class == String  %>
       <img src="https://www.solidbackgrounds.com/images/2560x1440/2560x1440-davys-grey-solid-color-background.jpg" alt="">
       <% else %>
-      <%= cl_image_tag animal.photo.key %>
+      <%= cl_image_tag animal.photo.key if animal.photo.attached? %>
       <% end %>
       <div class="card-trip-infos">
         <div>
