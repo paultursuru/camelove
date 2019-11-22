@@ -47,7 +47,7 @@
             </div>
             <% unless booking.review_rating.present? %>
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-window-<%= booking.id %>">
-                Launch demo modal
+                Add a review
               </button>
             <% else %>
               <p><%= '⭐️' * booking.review_rating %> <%= booking.review_description %></p></div>
