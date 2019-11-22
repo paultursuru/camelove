@@ -9,8 +9,7 @@
       <% @requests.each do |request| %>
         <div class="notification">
           <div class="notification-content">
-            <p><small class="first_line"><%= request.created_at %></small></p>
-            <p><small><strong><%= request.animal.name %></strong>  booked by <%= request.user.first_name %> from <%= request.date_in %> to <%= request.date_out %></small></p>
+            <p><small class="first_line"><strong><%= request.animal.name %></strong>  booked by <%= request.user.first_name %> from <%= request.date_in %> to <%= request.date_out %></small></p>
            <p>
              <%= simple_form_for [request.animal, request] do |f| %>
               <%= f.input :status, collection: ['pending', 'confirmed', 'declined', 'completed'], label: false %>

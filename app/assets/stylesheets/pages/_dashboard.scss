@@ -1,7 +1,5 @@
 
-.line {
-  border-top: solid #dedbdb 1px;
-}
+
 .booking_animal_card {
   /*border : 1px solid #d2cbcb; */
   border-bottom: none;
@@ -9,41 +7,37 @@
   margin-bottom: 5px;
 }
 
-
-.booking_history {
-
-    background: #ffffff !important;
-    /*border: 1px solid #e4e4e4 !important;
-    */
-    border-radius: 4px !important;
-    margin-bottom: 5px;
-  }
-
-.booking_history h3 {
-  width: 80px;
+.section-hover h3 {
   margin-left: 5px;
   margin-top: 3px;
  font-size: 22px;
  padding-top: 8px;
-  }
-
-.booking_history h2 {
-    font-size: 31px;
-    margin-bottom: 22px;
-    margin-left: 5px;
-    margin-top: 5px;
-    padding-top: 5px;
+  padding-left: 4px;
 }
 
-.booking_history p {
-  width: 150px;
+.list {
+  padding-right: 72px;
+}
+
+
+
+.history {
+  border-top: solid #dedbdb 1px;
+  padding-bottom: 18px;
+}
+.history h2 {
+  font-size: 2rem;
+  padding-bottom: 35px;
+  padding-top: 10px;
+
 }
 
 .date_review_container {
   padding-left: 30px;
-    padding-top: 12px;
+  padding-top: 12px;
+  padding-right: 20px;
 }
 .review {
-  padding-left: 40px;
+  padding-left: 52px;
 
 }

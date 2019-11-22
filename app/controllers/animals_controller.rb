@@ -13,7 +13,7 @@ class AnimalsController < ApplicationController
        lat: animal.latitude,
        lng: animal.longitude,
        infoWindow: render_to_string(partial: "info_window", locals: { animal: animal }),
-       image_url: helpers.asset_url('https://mpng.pngfly.com/20180714/tvc/kisspng-llama-clip-art-llama-llama-5b49a4f52f0ab9.5142269715315530131927.jpg')
+       image_url: helpers.asset_url('https://icon-library.net/images/llama-icon/llama-icon-29.jpg')
       }
     end
   end
