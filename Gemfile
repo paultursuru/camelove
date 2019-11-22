@@ -20,10 +20,11 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'geocoder'
+gem 'bootstrap', '~> 4.3.1'
 gem 'bootstrap-datepicker-rails'
 gem 'pickadate-rails'
-
-
+gem 'popper_js'
+gem 'jquery-rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

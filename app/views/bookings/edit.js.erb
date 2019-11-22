@@ -1,0 +1,2 @@
+$("#modal-window-<%= @booking.id %>").find(".modal-content").html("<%= j (render 'bookings/edit', booking: @booking) %>");
+$("#modal-window-<%= @booking.id %>").modal();
