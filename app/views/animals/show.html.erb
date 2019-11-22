@@ -27,12 +27,12 @@
         <div class="calendar_booking">
           <%=render 'shared/bookings_new', booking: Booking.new %>
         </div>
-        <% if @animal.bookings.empty? %>
-          <h2>Not convinced? Have a look at reviews</h2>
+        <% if @animal.bookings.present? %>
+          <h3 class= "mt-4 mb-4"><strong>Have a look at reviews:</strong></h3>
           <% @animal.bookings.each do |booking| %>
             <% booking.status == "completed" %>
             <% booking.review_description %>
-            <p><%= '⭐️' * booking.review_rating.to_i %>   <%= booking.review_description %></p>
+            <p class="mb-3"><%= '⭐️' * booking.review_rating.to_i %>   <%= booking.review_description %></p>
           <% end %>
         <% end %>
       <% end %>
