@@ -109,8 +109,8 @@ serge.photo.attach(io: file, filename: "some-image.jpg", content_type: 'image/jp
 serge.save!
 
 booking_polly = Booking.new(
-  date_in: 'Mon, 14 Oct 2019',
-  date_out: 'Sun, 20 Oct 2019',
+  date_in: 'Mon, 14 Jan 2019',
+  date_out: 'Sun, 20 Jan 2019',
   status: 'completed'
   )
 booking_polly.animal_id = polly.id
@@ -118,8 +118,8 @@ booking_polly.user_id = serge.id
 booking_polly.save!
 
 booking_jazz = Booking.new(
-  date_in: 'Mon, 10 Dec 2019',
-  date_out: 'Sun, 15 Dec 2019',
+  date_in: 'Mon, 10 Sep 2019',
+  date_out: 'Sun, 15 Sep 2019',
   status: 'confirmed'
   )
 booking_jazz.animal_id = jazz.id
