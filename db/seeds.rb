@@ -54,6 +54,33 @@ file = URI.open("https://res.cloudinary.com/darvd5cv4/image/upload/v1574336300/s
 sugar.photo.attach(io: file, filename: "some-image.jpg", content_type: 'image/jpg')
 sugar.save!
 
+josette = Animal.new(
+  name: 'Josette',
+  breed: 'Alpaga',
+  birth_date: 'Thu, 13 Oct 2012',
+  colour: 'White',
+  address: "16 Villa Gaudelet, Paris",
+  price: 200,
+  description: 'Josette is the best!',
+  )
+josette.user_id = lisa.id
+file = URI.open("https://res.cloudinary.com/darvd5cv4/image/upload/v1574428726/josette_nxcfrx.jpg")
+josette.photo.attach(io: file, filename: "some-image.jpg", content_type: 'image/jpg')
+josette.save!
+
+bernadette = Animal.new(
+  name: 'bernadette',
+  breed: 'Alpaga',
+  birth_date: 'Thu, 13 Oct 2012',
+  colour: 'White',
+  address: "16 Villa Gaudelet, Paris",
+  price: 200,
+  description: 'Better than my sister Josette !!',
+  )
+bernadette.user_id = lisa.id
+file = URI.open("https://res.cloudinary.com/darvd5cv4/image/upload/v1574428816/Bernadette_op2ecf.jpg")
+bernadette.photo.attach(io: file, filename: "some-image.jpg", content_type: 'image/jpg')
+bernadette.save!
 
 puts "Creating Matthieu Michel (owner) and his animals Jazz and Diva"
 matthieu = User.new(
@@ -117,15 +144,41 @@ booking_polly.animal_id = polly.id
 booking_polly.user_id = serge.id
 booking_polly.save!
 
+booking_josette = Booking.new(
+  date_in: 'Mon, 14 Feb 2019',
+  date_out: 'Sun, 20 Feb 2019',
+  status: 'completed'
+  )
+booking_josette.animal_id = josette.id
+booking_josette.user_id = serge.id
+booking_josette.save!
+
+booking_bernadette = Booking.new(
+  date_in: 'Mon, 25 Mar 2019',
+  date_out: 'Sun, 10 Apr 2019',
+  status: 'completed'
+  )
+booking_bernadette.animal_id = bernadette.id
+booking_bernadette.user_id = serge.id
+booking_bernadette.save!
+
 booking_jazz = Booking.new(
   date_in: 'Mon, 10 Sep 2019',
   date_out: 'Sun, 15 Sep 2019',
-  status: 'confirmed'
+  status: 'completed'
   )
 booking_jazz.animal_id = jazz.id
 booking_jazz.user_id = serge.id
 booking_jazz.save!
 
+booking_sugar = Booking.new(
+  date_in: 'Mon, 10 Sep 2019',
+  date_out: 'Sun, 15 Sep 2019',
+  status: 'completed'
+  )
+booking_sugar.animal_id = sugar.id
+booking_sugar.user_id = serge.id
+booking_sugar.save!
 # puts "Creating other users with animals and bookings..."
 # 5.times do
 #   random_name = Faker::Name.middle_name
