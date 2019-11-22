@@ -43,7 +43,16 @@
                 <%= date_in.strftime('%e %b') %>
                 <% date_out = booking.date_out %>
                 to <%= date_out.strftime('%e %b') %></p>
-              <p class="review"> <%= link_to "Add a Review", animal_booking_path(booking.animal, booking) %></p>
+                <% unless booking.review_rating.present? %>
+                <%= link_to 'Add a review', edit_animal_booking_path(booking.animal, booking),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}  %>
+                <div id="modal-window-<%= booking.id %>" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content"></div>
+                  </div>
+                </div>
+                <% else %>
+                  <br><%= '⭐️' * booking.review_rating %> <%= booking.review_description %></div>
+                <% end %>
             </div>
           </div>
            <img src="https://i.pinimg.com/originals/e9/2e/40/e92e408aac9f853b4a03173859f91d87.jpg" alt="" width= "40", height= "40" class="rounded-circle mt-2 mr-2">

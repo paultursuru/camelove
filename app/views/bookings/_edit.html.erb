@@ -1,0 +1,15 @@
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal">x</button>
+  <h4 class="modal-title" id="myModalLabel">Add a review</h4>
+</div>
+<div class="modal-body">
+  <%= simple_form_for [@booking.animal, @booking] do |f| %>
+    <%= f.input :review_rating, collection: [ 1, 2, 3, 4, 5, ] %>
+    <%= f.input :review_description %>
+    <hr>
+    <%= f.submit 'Confirm', class: 'btn btn-primary' %>
+    <%= link_to 'Cancel', dashboard_path, class: 'btn btn-secondary' %>
+  <% end %>
+</div>
+<!-- <div class="modal-footer"> -->
+<!-- </div> -->

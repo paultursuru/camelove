@@ -37,6 +37,16 @@ class BookingsController < ApplicationController
   end
 
   def edit
+    @booking = Booking.find(params[:id])
+    respond_to do |format|
+      format.html do
+        render 'edit', booking: @booking
+      end
+      format.js do
+        j render 'edit', booking: @booking
+      end
+
+    end
     authorize @booking
   end
 

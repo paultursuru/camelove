@@ -1,18 +1,1 @@
- <div class="container mt-5">
-  <% if @booking.status == 'completed' %>
-    <h1>Add a review</h1>
-    <%= simple_form_for [@booking.animal, @booking] do |f| %>
-      <%= f.input :review_rating, collection: [ 1, 2, 3, 4, 5, ] %>
-      <%= f.input :review_description %>
-      <%= f.submit 'Confirm', class: 'btn btn-primary' %>
-      <%= link_to 'Cancel', animal_booking_path(@booking.animal, @booking), class: 'btn btn-secondary' %>
-    <% end %>
-  <% else %>
-    <h1>Edit booking status</h1>
-    <%= simple_form_for [@booking.animal, @booking] do |f| %>
-      <%= f.input :status, collection: ['pending', 'confirmed', 'declined', 'completed'] %>
-      <%= f.submit 'Confirm', class: 'btn btn-primary' %>
-      <%= link_to 'Cancel', animal_booking_path(@booking.animal, @booking), class: 'btn btn-secondary' %>
-    <% end %>
-  <% end %>
-</div>
+<%= render 'edit' %>
