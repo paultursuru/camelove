@@ -15,7 +15,7 @@
           <div class="animal-thumb">
             <%= cl_image_tag booking.animal.photo.key, width:80, height: 80, class:"img-thumbnail mt-2 mr-2 ml-2" %>
           </div>
-            <div class="card-trip-infos">
+            <div class="card-trip-infos-list">
               <div>
                 <h2><%= booking.animal.name %></h2>
                   <p> From <% date_in = booking.date_in %>
@@ -32,9 +32,7 @@
 
        <% end %>
     </div>
-   <!--  <div class =" line mb-5"> -->
-<!--
-      <div class="booking_history"> -->
+
     <div class="history row pt-2 d-flex justify-content-between">
       <h2>Booking history</h2>
        <% @bookings.each do |booking| %>
@@ -46,6 +44,7 @@
                   <%= date_in.strftime('%e %b') %>
                   <% date_out = booking.date_out %>
                   to <%= date_out.strftime('%e %b') %></p>
+
               </div>
                 <% unless booking.review_rating.present? %>
                 <%= link_to 'Add a review', edit_animal_booking_path(booking.animal, booking),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}  %>
