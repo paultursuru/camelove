@@ -1,3 +1,7 @@
-<h2><%= animal.name %></h2>
-<p><%= animal.address %></p>
-<p><%#= animal.description %></p>
+<%= link_to animal_path(animal) do %>
+  <div id= "info-map-text">
+    <h2><%= animal.name %></h2>
+    <p><%= animal.address %></p>
+    <p><%#= animal.description %></p>
+  </div>
+<% end  %>
