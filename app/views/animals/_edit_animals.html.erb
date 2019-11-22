@@ -1,13 +1,23 @@
-<h1 class="mb-4">Change <%= @animal.name %>'s details</h1>
-      <%= simple_form_for(@animal) do |f| %>
-        <%= f.input :name  %>
-        <%= f.input :breed, collection: ['Alpaga', 'Camel','Llama'] %>
-        <%= f.input :birth_date %>
-        <%= f.input :colour %>
-        <%= f.input :address %>
-        <%= f.input :description %>
-        <%= f.input :photo %>
-        <%= f.input :price %>
-        <%= f.submit 'Update', class: 'btn btn-primary mr-2' %>
-        <%= link_to 'Cancel', animal_path(@animal), class: 'btn btn-secondary' %>
-      <% end %>
+<div class="card card-body">
+        <h2>Change <%= @animal.name %>'s  infos</h2>
+        <%= simple_form_for(@animal) do |f| %>
+          <div class="row justify-content-between">
+            <div class="col-3">
+              <%= f.input :name, placeholder: 'Happy' %>
+            </div>
+            <div class="col-6">
+              <%= f.input :breed, as: :radio_buttons, collection: ['Alpaga', 'Camel','Llama'], wrapper: :vertical_collection_inline %>
+            </div>
+            <div class="col-3">
+              <%= f.input :price, placeholder: '100' %>
+            </div>
+           </div>
+          <%= f.input :birth_date %>
+          <%= f.input :colour, as: :radio_buttons, collection: ['White', 'Black','Brown', 'Grey', 'Beige', 'Red'], wrapper: :vertical_collection_inline %>
+          <%= f.input :address, placeholder: '16 villa Gaudelet, Paris' %>
+          <%= f.input :description, placeholder: 'Describe your animal :)' %>
+          <%= f.input :photo, as: :file %>
+
+          <%= f.submit "Save !", class: 'btn btn-primary ml-2' %>
+        <% end %>
+      </div>
